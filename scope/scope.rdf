@@ -28,9 +28,4 @@
             <owl:priorVersion rdf:resource="https://ontology.scopeontology.org/scope/0.1"/>
             <owl:versionIRI rdf:resource="https://ontology.scopeontology.org/scope/0.1"/>
             <owl:versionInfo>0.1.0</owl:versionInfo>
-    </owl:Ontology>
-	 <rdfs:Class rdf:about="https://ontology.scopeontology.org/scope/vocabulary" rdfs:label="scope-vocabularies" rdfs:comment="Vocabularies used in Smart City Infrastructure (SCI)." vs:term_status="stable">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:isDefinedBy rdf:resource="https://ontology.scopeontology.org/scope/scope"/>
-	</rdfs:Class>
 </rdf:RDF>

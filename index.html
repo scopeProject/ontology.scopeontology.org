@@ -20,6 +20,10 @@
         .content {
             width: 70%;
             padding: 10px;
+            overflow-y: auto;
+        }
+        .content h1 {
+            margin-top: 0;
         }
     </style>
 </head>
@@ -28,20 +32,37 @@
         <ul>
             <li><a href="#" onclick="loadContent('contents.html')">Contents</a></li>
             <li><a href="#" onclick="loadContent('index-all.html')">Index</a></li>
+            <li><a href="#" onclick="loadContent('ontologies/scope___-2146776523.html')">Scope</a></li>
+            <!-- Add more links as needed -->
         </ul>
     </div>
     <div class="content" id="content">
-        <p>Welcome to OWLDoc. Select an option from the menu.</p>
+        <h1>Welcome to OWLDoc</h1>
+        <p>Select a link to load content.</p>
     </div>
 
     <script>
         function loadContent(url) {
             fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('content').innerHTML = data;
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
                 })
-                .catch(error => console.error('Error loading content:', error));
+                .then(html => {
+                    // Replace the content with the fetched HTML
+                    document.getElementById('content').innerHTML = html;
+
+                    // If the loaded content includes scripts, execute them
+                    const scripts = document.getElementById('content').getElementsByTagName('script');
+                    for (let i = 0; i < scripts.length; i++) {
+                        eval(scripts[i].innerText); // Caution: eval() should be used carefully
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('content').innerHTML = `<p>Error loading content: ${error.message}</p>`;
+                });
         }
     </script>
 </body>

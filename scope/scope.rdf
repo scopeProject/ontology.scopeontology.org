@@ -28,4 +28,5 @@
             <owl:priorVersion rdf:resource="https://ontology.scopeontology.org/scope/0.1"/>
             <owl:versionIRI rdf:resource="https://ontology.scopeontology.org/scope/0.1"/>
             <owl:versionInfo>0.1.0</owl:versionInfo>
+	</owl:Ontology>
 </rdf:RDF>

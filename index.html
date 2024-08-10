@@ -1,15 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>
-OWLDoc
-</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWLDoc</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            background-color: #f0f0f0;
+            border-right: 1px solid #ccc;
+        }
+        .sidebar iframe {
+            border: none;
+            flex-grow: 1;
+        }
+        .content {
+            width: 70%;
+            background-color: #fff;
+        }
+        .content iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
-<frameset cols="30%,70%">
-    <frameset rows="30%,70%">
-<frame src="contents.html" name="nav" title="Contents"/>
-<frame src="index-all.html" name="subnav" title="Index"/>
-    </frameset>
-    <frame src="ontologies/scope___-2146776523.html" name="content" title="Content"/>
-    <noframes>classes/index.html</noframes>
-</frameset>
+<body>
+    <div class="sidebar">
+        <iframe src="contents.html" title="Contents"></iframe>
+        <iframe src="index-all.html" title="Index"></iframe>
+    </div>
+    <div class="content">
+        <iframe src="ontologies/scope___-2146776523.html" title="Content"></iframe>
+    </div>
+</body>
 </html>
